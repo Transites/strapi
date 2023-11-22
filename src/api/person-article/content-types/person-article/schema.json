@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "person_articles",
+  "info": {
+    "singularName": "person-article",
+    "pluralName": "person-articles",
+    "displayName": "Verbete Pessoa",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "richtext"
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::author.author"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "person_articles"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "person_articles"
+    },
+    "alternativeTitles": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "section.free-text-section",
+        "section.strict-text-section"
+      ]
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "birth": {
+      "type": "component",
+      "repeatable": false,
+      "component": "other.place-and-date"
+    },
+    "death": {
+      "type": "component",
+      "repeatable": false,
+      "component": "other.place-and-date"
+    }
+  }
+}
