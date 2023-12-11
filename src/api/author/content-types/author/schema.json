@@ -18,13 +18,8 @@
     "description": {
       "type": "richtext"
     },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+    "institution": {
+      "type": "string"
     }
   }
 }
